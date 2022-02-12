@@ -4,18 +4,23 @@
 .header{
     text-align: center;
 }
-.header nav{
+.navbar{
     padding-left: 100px;
     text-align: left;
     background-color: black;
     line-height: 30px;
 }
-nav a{
+.navbar a{
     color: white;
     text-decoration: none;
     margin-right: 20px;
     padding: 5px;
 }
-nav a:hover{
+.navbar a:hover{
     background-color: grey;
+}
+.navbar span {
+    color: blue;
+    margin-right: 20px;
+    padding: 5px;
 }

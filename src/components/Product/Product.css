@@ -4,18 +4,20 @@
     margin-bottom: 10px;
     margin-right: 10px;
     padding-bottom: 5px;
-    padding-right: 10px;
+    padding-right: 10px; 
 }
 .image{
     margin-right: 10px;
 }
 .product-name{
-    color:crimson;
-    font-weight: 600;
+    color: black;
+    font-size: 18px;
+    font-weight: 600; 
+    text-decoration: none;
 }
 .cart-btn{
     background-color: goldenrod;
-    width: 120px;
+    width: 140px;
     height: 25px;
     border: grey;
     border-radius: 5px;
