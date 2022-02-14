@@ -6,6 +6,18 @@ import './Header.css'
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    const user = localStorage ? localStorage.getItem('email') : ''
+    const data = user ? JSON.parse(user) : {};
+    const handleClick = () => {
+        if(localStorage){
+            localStorage.removeItem('email')
+        }
+        if(loggedInUser){
+            setLoggedInUser({})
+        }
+        
+    }
+    // console.log(data.name)
     return (
         <div className='header'>
             <Link to="/shop"><img src={logo} alt="" /></Link>
@@ -13,8 +25,9 @@ const Header = () => {
                 <Link to={"/shop"}>Shop</Link>
                 <Link to="/review">Order Review</Link>
                 <Link to="/inventory">Manage Inventory</Link>
-                <span>{loggedInUser.name}</span>
-                <Link onClick={() => setLoggedInUser({})} to="/login">{loggedInUser.email ? 'Sign out' : 'Sign in'}</Link>
+                <span>{(data || loggedInUser) ? (data.name || loggedInUser.name) : '' }</span>
+                <Link onClick={handleClick} to="/login">
+                    {(loggedInUser.email || data.email) ? 'Sign out' : 'Sign in'}</Link>
             </nav>
         </div>
     );

@@ -19,7 +19,7 @@ const Login = () => {
         error : '',
         success : ''
     })
-    const [ setLoggedInUser] = useContext(userContext)
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const navigate = useNavigate()
     const location = useLocation()
     let { from } = location.state || { from: { pathname: "/" } }; 
@@ -38,6 +38,8 @@ const Login = () => {
             }
             setUser(signedInUser)
             setLoggedInUser(signedInUser)
+            const json = JSON.stringify(signedInUser)
+            localStorage.setItem("email", json)
         }) 
         .catch((error)=>{
             console.log(error.message);
@@ -54,6 +56,7 @@ const Login = () => {
                 photo : '',
             }
             setUser(signOutUser)
+            localStorage.removeItem('email')
         })
     }
     const handleBlur = (e) => {
